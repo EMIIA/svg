@@ -6,7 +6,7 @@
 <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
 <title>CodePen - Elk</title>
 <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css"/><style>
-    canvas {position: absolute; top:20px; left:50%; width: 450px; height: 450px; margin-left: -225px; background-color: #222222;}
+    canvas {position: absolute; top:20px; left:50%; width: 450px; height: 450px; margin-left: -225px; background-color: transparent;}
   </style>
 <script>
   window.console = window.console || function(t) {};
@@ -47,7 +47,7 @@ d3.json("https://hankuro.sakura.ne.jp/json/animal/elk.json", function (error, ro
     ctx.translate(width / 2, height / 2 + 50);
     ctx.clearRect(-width / 2, -height / 2 - 50, width, height);
     ctx.scale(1.5, -1.5);
-    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.fillStyle = "rgba(220,200,255,0.8)";
     var vecs = json.morphTargets[current].vertices;
     var sin = Math.sin(angle);
     var cos = Math.cos(angle);
@@ -88,4 +88,3 @@ vertex.prototype.getScrrenPoint = function () {
     </script>
 </body>
 </html>
-
