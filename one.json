@@ -1,0 +1,51 @@
+{
+  "#comment": [
+    "",
+    ""
+  ],
+  "html": {
+    "head": {
+      "meta": [
+        {
+          "@charset": "UTF-8"
+        },
+        {
+          "@name": "authoring-tool",
+          "@content": "Adobe_Animate_CC"
+        }
+      ],
+      "title": "one",
+      "#comment": [
+        "",
+        ""
+      ],
+      "script": [
+        {
+          "@src": "https://code.createjs.com/createjs-2015.11.26.min.js"
+        },
+        {
+          "@src": "one.js"
+        },
+        "var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;\nfunction init() {\n\tcanvas = document.getElementById(\"canvas\");\n\tanim_container = document.getElementById(\"animation_container\");\n\tdom_overlay_container = document.getElementById(\"dom_overlay_container\");\n\tvar comp=AdobeAn.getComposition(\"7A87E56C0D11F2468047300C3A2D1885\");\n\tvar lib=comp.getLibrary();\n\thandleComplete({},comp);\n}\nfunction handleComplete(evt,comp) {\n\t//This function is always called, irrespective of the content. You can use the variable \"stage\" after it is created in token create_stage.\n\tvar lib=comp.getLibrary();\n\tvar ss=comp.getSpriteSheet();\n\texportRoot = new lib.Untitled1();\n\tstage = new lib.Stage(canvas);\t\n\t//Registers the \"tick\" event listener.\n\tfnStartAnimation = function() {\n\t\tstage.addChild(exportRoot);\n\t\tcreatejs.Ticker.setFPS(lib.properties.fps);\n\t\tcreatejs.Ticker.addEventListener(\"tick\", stage);\n\t}\t    \n\t//Code to support hidpi screens and responsive scaling.\n\tfunction makeResponsive(isResp, respDim, isScale, scaleType) {\t\t\n\t\tvar lastW, lastH, lastS=1;\t\t\n\t\twindow.addEventListener('resize', resizeCanvas);\t\t\n\t\tresizeCanvas();\t\t\n\t\tfunction resizeCanvas() {\t\t\t\n\t\t\tvar w = lib.properties.width, h = lib.properties.height;\t\t\t\n\t\t\tvar iw = window.innerWidth, ih=window.innerHeight;\t\t\t\n\t\t\tvar pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;\t\t\t\n\t\t\tif(isResp) {                \n\t\t\t\tif((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    \n\t\t\t\t\tsRatio = lastS;                \n\t\t\t\t}\t\t\t\t\n\t\t\t\telse if(!isScale) {\t\t\t\t\t\n\t\t\t\t\tif(iw<w || ih<h)\t\t\t\t\t\t\n\t\t\t\t\t\tsRatio = Math.min(xRatio, yRatio);\t\t\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\telse if(scaleType==1) {\t\t\t\t\t\n\t\t\t\t\tsRatio = Math.min(xRatio, yRatio);\t\t\t\t\n\t\t\t\t}\t\t\t\t\n\t\t\t\telse if(scaleType==2) {\t\t\t\t\t\n\t\t\t\t\tsRatio = Math.max(xRatio, yRatio);\t\t\t\t\n\t\t\t\t}\t\t\t\n\t\t\t}\t\t\t\n\t\t\tcanvas.width = w*pRatio*sRatio;\t\t\t\n\t\t\tcanvas.height = h*pRatio*sRatio;\n\t\t\tcanvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';\t\t\t\t\n\t\t\tcanvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';\n\t\t\tstage.scaleX = pRatio*sRatio;\t\t\t\n\t\t\tstage.scaleY = pRatio*sRatio;\t\t\t\n\t\t\tlastW = iw; lastH = ih; lastS = sRatio;            \n\t\t\tstage.tickOnUpdate = false;            \n\t\t\tstage.update();            \n\t\t\tstage.tickOnUpdate = true;\t\t\n\t\t}\n\t}\n\tmakeResponsive(false,'both',false,1);\t\n\tAdobeAn.compositionLoaded(lib.properties.id);\n\tfnStartAnimation();\n}"
+      ]
+    },
+    "body": {
+      "@onload": "init();",
+      "@style": "margin:0px;",
+      "div": {
+        "@id": "animation_container",
+        "@style": "background-color:rgba(255, 255, 255, 1.00); width:320px; height:320px",
+        "canvas": {
+          "@id": "canvas",
+          "@width": "320",
+          "@height": "320",
+          "@style": "position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"
+        },
+        "div": {
+          "@id": "dom_overlay_container",
+          "@style": "pointer-events:none; overflow:hidden; width:320px; height:320px; position: absolute; left: 0px; top: 0px; display: block;"
+        }
+      }
+    }
+  }
+}
