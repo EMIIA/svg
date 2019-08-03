@@ -13,8 +13,8 @@
 <meta name="authoring-tool" content="Adobe_Animate_CC">
 <title>Men(короткая нога) символы</title>
 <!-- write your code here -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css"/><script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="Men(короткая нога) символы.js"></script>
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="https://emiia.github.io/svg/man.js"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -45,7 +45,7 @@ function handleComplete(evt,comp) {
 		function resizeCanvas() {			
 			var w = lib.properties.width, h = lib.properties.height;			
 			var iw = window.innerWidth, ih=window.innerHeight;			
-			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=0.4;			
 			if(isResp) {                
 				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
 					sRatio = lastS;                
